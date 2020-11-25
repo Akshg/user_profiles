@@ -1,2 +1,2 @@
-# user_profiles
+# user profiles
 Manage user profiles
