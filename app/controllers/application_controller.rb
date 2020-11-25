@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
 
   def index
     return redirect_to new_user_session_path if current_user.nil?
-    render html: "<h1>Hii! #{current_user.name}</h1>".html_safe
+    redirect_to user_path(id: current_user.id)
+    # render html: "<h1>Hii! #{current_user.name}</h1>".html_safe
   end
 
   protected

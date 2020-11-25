@@ -1,1 +1,10 @@
-<%= @user.inspect %>
+<div class="container-fluid">
+  <div class="media my-3">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1"><%= @user.name %></h5>
+      <p><%= @user.email %></p>
+      <%= @user.address %>
+    </div>
+    <img class="ml-3" src="..." alt="Generic placeholder image">
+  </div>
+</div>
