@@ -1,0 +1,21 @@
+<div class="media my-3 bg-light">
+  <div class="media-body my-3 mx-3">
+    <h5 class="mt-0 mb-1"><%= user.name %></h5>
+    <p><%= mail_to user.email %></p>
+    <%= user.address %>
+    <div class="my-5">
+      <div class="btn p-0">
+        <% if controller_name == 'users' && action_name == 'show' %>
+          <%= link_to "Edit", edit_user_registration_path, class: "btn btn-primary" %>
+        <% else%>
+          <%= link_to "Edit", edit_user_path(user), class: "btn btn-primary" %>
+        <% end  %>
+      </div>
+    </div>
+  </div>
+  <% if user.avatar.attached? %>
+    <%= image_tag user.avatar, width: "15%", height: "15%", class: "rounded ml-3 my-3 mx-3" %>
+  <% else %>
+    <%= image_tag "default-avatar-profile-icon-grey.jpg", width: "15%", height: "15%", class: "rounded-circle ml-3 my-3 mx-3" %>
+<% end %>
+</div>
