@@ -3,13 +3,13 @@ class ApplicationController < ActionController::Base
 
   def index
     return redirect_to new_user_session_path if current_user.nil?
-    redirect_to user_path(id: current_user.id)
-    # render html: "<h1>Hii! #{current_user.name}</h1>".html_safe
+    redirect_to profile_path
   end
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :address])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :address, :avatar])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :address, :avatar])
   end
 end
