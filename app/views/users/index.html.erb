@@ -1,1 +1,27 @@
-<%= render partial: "user", collection: @users %>
+<ul class="list-unstyled">
+  <% @users.each do |user|%>
+    <li class="media bg-light mb-3">
+      <!-- <img class="mr-3" src="..." alt="Generic placeholder image"> -->
+      <% if user.avatar.attached? %>
+        <%= image_tag user.avatar, width: "15%", height: "15%", class: "rounded ml-3 my-3 mx-3" %>
+      <% else %>
+        <%= image_tag "default-avatar-profile-icon-grey.jpg", width: "15%", height: "15%", class: "rounded-circle ml-3 my-3 mx-3" %>
+      <% end %>
+      <div class="media-body mt-3">
+        <h5 class="mt-0 mb-1"><%= user.name %></h5>
+        <p><%= mail_to user.email %></p>
+        <%= user.address %>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+      </div>
+      <span class="mr-3 mt-3">
+      <% if controller_name == 'users' && action_name == 'show' %>
+        <%= link_to "Edit", edit_user_registration_path %>
+      <% else%>
+        <%= link_to "Edit", edit_user_path(user) %>
+      <% end  %>    
+      </span>
+      
+    </li>
+  <% end %>
+</ul>
+<%#= render partial: "user", collection: @users %>
